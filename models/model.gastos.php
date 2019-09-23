@@ -105,6 +105,21 @@ Class GastosMdl extends Conexion{
     return $stmt->fetch();
     $stmt->close();
   }
+
+  /*=============================================>>>>>
+                =Sumar gastos=
+  ===============================================>>>>>*/
+
+  static public function sumarGastosMes($key,$mes,$anio,$tabla){
+    $stmt=Conexion::conectar()->prepare("SELECT ROUND(SUM(monto_gasto),1) FROM $tabla WHERE ((MONTH(fecha_gasto)=:mes) AND (YEAR(fecha_gasto)=:anio)) AND (id_usuario_gasto=:key)");
+    $stmt->bindParam(":mes",$mes,PDO::PARAM_STR);
+    $stmt->bindParam(":anio",$anio,PDO::PARAM_STR);
+    $stmt->bindParam(":key",$key,PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+  }
+
 }
 
 ?>
