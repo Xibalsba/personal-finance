@@ -5,7 +5,7 @@
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="mdi mdi-package-variant-closed"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">Control</div>
+    <div class="sidebar-brand-text mx-3">Control Datos</div>
   </a>
 
   <!-- Divider -->
