@@ -22,21 +22,21 @@
   <div class="sidebar-heading">
     Finanzas
   </div>
-
-  <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-      <i class="mdi mdi-rocket mdi-18px"></i>
-      <span>Finanzas</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="presupuestos">Presupuestos</a>
-        <a class="collapse-item" href="gastos">Gastos</a>
-      </div>
-    </div>
+    <a class="nav-link" href="presupuestos">
+      <i class="mdi mdi-cards"></i>
+      <span>Categorias</span></a>
   </li>
-
+  <li class="nav-item">
+    <a class="nav-link" href="presupuestos">
+      <i class="mdi mdi-trending-up"></i>
+      <span>Presupuestos</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="gastos">
+      <i class="mdi mdi-trending-down"></i>
+      <span>Gastos</span></a>
+  </li>
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">
 
