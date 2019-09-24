@@ -23,7 +23,7 @@
     Finanzas
   </div>
   <li class="nav-item">
-    <a class="nav-link" href="presupuestos">
+    <a class="nav-link" href="categorias">
       <i class="mdi mdi-cards"></i>
       <span>Categorias</span></a>
   </li>
