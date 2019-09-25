@@ -22,5 +22,29 @@ class CategoriasCtrl{
       echo ($registro == "exito") ? '<script>window.location = "index.php?action=categorias&add=success"</script>':'<script>window.location = "index.php?action=categorias&add=error"</script>';
     }
   }
+
+  /*=============================================>>>>>
+  = Mostrar las categorias =
+  ===============================================>>>>>*/
+  static public function mostrarCategorias(){
+      $categorias = CategoriasMdl::mostrarCategorias("categorias");
+      $cont = 1;
+      foreach ($categorias as $key => $categoria) {
+        echo '<tr>
+            <th scope="row">'.$cont.'</th>
+            <td>'.$categoria["nom_categoria"].'</td>
+            <td>'.$categoria["descripcion_categoria"].'</td>
+            <td>'.$categoria["fecha_categoria"].'</td>
+            <td>'.$categoria["tipo_categoria"].'</td>
+            <td>
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-secondary btnEditarCategoria" keyCategoria="'.ControlGastosAppCtrl::openCypher("encrypt",$categoria["id_categoria"]).'">Editar</button>
+                  <button type="button" class="btn btn-secondary btnEliminarCategoria" keyCategoria="'.ControlGastosAppCtrl::openCypher("encrypt",$categoria["id_categoria"]).'">Eliminar</button>
+                </div>
+            </td>
+        </tr>';
+        $cont++;
+      }
+  }
 }
 ?>

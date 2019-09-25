@@ -57,6 +57,7 @@
             </tr>
           </thead>
           <tbody>
+          <?php $categorias = new CategoriasCtrl(); $categorias -> mostrarCategorias(); ?>
           </tbody>
         </table>
       </div>

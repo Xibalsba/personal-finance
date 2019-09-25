@@ -13,5 +13,15 @@ class CategoriasMdl extends Conexion{
       return ($stmt->execute()) ? 'exito':'error';
       $stmt->close();
     }
+
+    /*=============================================>>>>>
+    = Mostrar las categorias =
+    ===============================================>>>>>*/
+    static public function mostrarCategorias($tabla){
+        $stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla");
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close();
+    }
 }
 ?>
