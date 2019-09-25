@@ -1,5 +1,6 @@
 <div class="modal" tabindex="-1" role="dialog" id="modalCategoriaNuevo">
   <div class="modal-dialog" role="document">
+    <?php $registro = new CategoriasCtrl(); $registro -> agregarCategoria(); ?>
     <form method="post" id="formCategoriaNuevo">
       <div class="modal-content">
         <div class="modal-header">
