@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xl-12 col-md-12 mb-2 clearfix">
     <h2 class="h3 text-gray-800">CATEGORIAS</h2>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalGastoNuevo"><i class="fa fa-plus mr-2"></i>Agregar nueva categoria</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCategoriaNuevo"><i class="fa fa-plus mr-2"></i>Agregar nueva categoria</button>
   </div>
   <div class="col-xl-12 col-md-12 clearfix">
     <?php
@@ -63,3 +63,5 @@
     </div>
   </div>
 </div>
+
+<?php include "modals/modal-categoria-nuevo.php" ?>
