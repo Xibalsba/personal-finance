@@ -26,8 +26,8 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="comentariosCategoriaNuevo">Comentarios (OPCIONAL)</label>
-            <textarea class="form-control" id="comentariosCategoriaNuevo" name="comentariosCategoriaNuevo" rows="3"></textarea>
+            <label for="descripcionCategoriaNuevo">Descripción (OPCIONAL)</label>
+            <textarea class="form-control" id="descripcionCategoriaNuevo" name="descripcionCategoriaNuevo" rows="3"></textarea>
           </div>
         </div>
         <div class="modal-footer">

@@ -8,7 +8,7 @@ class CategoriasCtrl{
       $datos = array(
         "nombre"=>$_POST["nombreCategoriaNuevo"],
         "tipo"=>$_POST["tipoCategoriaNuevo"],
-        "comentario"=>$_POST["comentariosCategoriaNuevo"],
+        "descripcion"=>$_POST["descripcionCategoriaNuevo"],
         "key"=>ControlGastosAppCtrl::openCypher("decrypt",$_POST["keyCategoriaNuevo"])
       );
 
