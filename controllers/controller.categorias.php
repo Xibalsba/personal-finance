@@ -27,7 +27,7 @@ class CategoriasCtrl{
   = Mostrar las categorias =
   ===============================================>>>>>*/
   static public function mostrarCategorias(){
-      $categorias = CategoriasMdl::mostrarCategorias("categorias");
+      $categorias = CategoriasMdl::mostrarCategorias($_SESSION["userKey"],"categorias");
       $cont = 1;
       foreach ($categorias as $key => $categoria) {
         echo '<tr>

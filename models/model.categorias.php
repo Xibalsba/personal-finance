@@ -17,8 +17,9 @@ class CategoriasMdl extends Conexion{
     /*=============================================>>>>>
     = Mostrar las categorias =
     ===============================================>>>>>*/
-    static public function mostrarCategorias($tabla){
-        $stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla");
+    static public function mostrarCategorias($key,$tabla){
+        $stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_usuario=:key");
+        $stmt->bindParam(":key",$key,PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();
