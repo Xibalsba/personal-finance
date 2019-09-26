@@ -19,7 +19,8 @@
                 <div class="wrapper text-center text-sm-left">
                   <h5 class="card-title">Categorias Presupuesto</h5>
                   <div class="fluid-container">
-                    <h3 class="mb-0 font-weight-medium">12
+                    <h3 class="mb-0 font-weight-medium">
+                      <?php $cantidad = CategoriasCtrl::contarCategorias("PRESUPUESTO");?>
                     </h3>
                   </div>
                 </div>
@@ -35,7 +36,8 @@
                 <div class="wrapper text-center text-sm-left">
                   <h5 class="card-title">Categorias Gasto</h5>
                   <div class="fluid-container">
-                    <h3 class="mb-0 font-weight-medium">12
+                    <h3 class="mb-0 font-weight-medium">
+                      <?php $cantidad = CategoriasCtrl::contarCategorias("GASTO"); ?>
                     </h3>
                   </div>
                 </div>

@@ -23,5 +23,20 @@ class CategoriasMdl extends Conexion{
         return $stmt->fetchAll();
         $stmt->close();
     }
+
+    /*=============================================>>>>>
+    = Contar las categorias =
+    ===============================================>>>>>*/
+
+    static public function contarCategorias($tipo,$tabla){
+      $stmt=Conexion::conectar()->prepare("SELECT COUNT(id_categoria) FROM $tabla WHERE tipo_categoria=:tipo");
+      $stmt->bindParam(":tipo",$tipo,PDO::PARAM_STR);
+      $stmt->execute();
+      return $stmt->fetch();
+      $stmt->close();
+    }
+
+    /*= Fin de Contar las categorias =*/
+    /*=============================================<<<<<*/
 }
 ?>

@@ -46,5 +46,14 @@ class CategoriasCtrl{
         $cont++;
       }
   }
+
+  /*=============================================>>>>>
+  = Contar las categorias por tipo =
+  ===============================================>>>>>*/
+
+  static public function contarCategorias($tipo){
+    $contar = CategoriasMdl::contarCategorias($tipo,"categorias");
+    echo $contar[0];
+  }
 }
 ?>
