@@ -36,10 +36,12 @@
             <div class="form-group">
               <label for="estadoPresupuestoEditar">Estado del presupuesto</label>
               <select id="estadoPresupuestoEditar" name="estadoPresupuestoEditar" class="form-control">
-                <option value="BILLETERA">BILLETERA</option>
-                <option value="ALCANCIA">ALCANCIA</option>
-                <option value="CUENTA DE AHORRO">CUENTA DE AHORRO</option>
-                <option value="CUENTA DE NÓMINA">CUENTA DE NÓMINA</option>
+                <?php
+                $categorias = CategoriasMdl::mostrarCategoriasTipo($_SESSION["userKey"],"PRESUPUESTO","categorias");
+                foreach ($categorias as $key => $categoria) {
+                  echo '<option value="'.$categoria["id_categoria"].'">'.$categoria["nom_categoria"].'</option>';
+                }
+                ?>
               </select>
             </div>
             <div class="form-group">

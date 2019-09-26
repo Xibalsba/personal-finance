@@ -34,10 +34,12 @@
               <label for="tipoGastoNuevo">Tipo de gasto</label>
               <select id="tipoGastoNuevo" name="tipoGastoNuevo" class="form-control">
                 <option selected disabled>Elegir...</option>
-                <option value="GASTOS FIJOS">GASTOS FIJOS (No se modifican con frecuencia)</option>
-                <option value="GASTOS VARIABLES">GASTOS VARIABLES (Los precios pueden alterarse)</option>
-                <option value="GASTOS ESENCIALES">GASTOS ESENCIALES (Aquellas necesidades que no se pueden obviar)</option>
-                <option value="GASTOS OPCIONALES">GASTOS OPCIONALES (Gastos superfluos, o sea que están de más.)</option>
+                <?php
+                $categorias = CategoriasMdl::mostrarCategoriasTipo($_SESSION["userKey"],"GASTO","categorias");
+                foreach ($categorias as $key => $categoria) {
+                  echo '<option value="'.$categoria["id_categoria"].'">'.$categoria["nom_categoria"].'</option>';
+                }
+                ?>
               </select>
             </div>
             <div class="form-group col-md-6">

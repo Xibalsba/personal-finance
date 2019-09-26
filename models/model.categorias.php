@@ -25,6 +25,15 @@ class CategoriasMdl extends Conexion{
         $stmt->close();
     }
 
+    static public function mostrarCategoriasTipo($key,$tipo,$tabla){
+        $stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_usuario=:key AND tipo_categoria=:tipo");
+        $stmt->bindParam(":key",$key,PDO::PARAM_STR);
+        $stmt->bindParam(":tipo",$tipo,PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close();
+    }
+
     /*=============================================>>>>>
     = Contar las categorias =
     ===============================================>>>>>*/
