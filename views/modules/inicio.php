@@ -1,5 +1,11 @@
 <h2 class="h3 mb-4 text-gray-800">INICIO</h2>
 <div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-success" role="alert">
+      <i class="mdi mdi-human-greeting mr-2"></i>
+      Es bueno verte por aquí, <strong>Julio</strong>
+    </div>
+  </div>
   <div class="col-xl-3 col-md-3 mb-4">
     <div class="card border-left-primary shadow h-100 py-2">
       <div class="card-body">
@@ -75,6 +81,10 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="col-md-12">
+    <canvas id="myChart" width="400" height="400"></canvas>
   </div>
 </div>
 <?php include "modals/modal-presupuesto-nuevo.php"; ?>

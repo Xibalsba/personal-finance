@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once "../controllers/controller.app.php";
 require_once "../controllers/controller.presupuestos.php";
 require_once "../controllers/controller.gastos.php";
@@ -35,6 +35,32 @@ class ControlGastosAjax{
 
   /*= End of Gastos =*/
   /*=============================================<<<<<*/
+
+  /*=============================================>>>>>
+  = Consultar datos para la grafica =
+  ===============================================>>>>>*/
+  public function consultarDatosGraficaPAjax(){
+    $tipo = $this->keyDato;
+    $anio = date("Y");
+    $consulta = PresupuestosCtrl::consultarDatosGrafica($anio);
+    echo json_encode($tipo);
+  }
+
+  public function consultarDatosGraficaAjax(){
+    $anio = date("Y");
+    $datos = array();
+
+    $presupuestos = PresupuestosCtrl::consultarDatosGrafica($_SESSION["userKey"],$anio);
+    $gastos = GastosCtrl::consultarDatosGrafica($_SESSION["userKey"],$anio);
+
+    array_push($datos,$presupuestos);
+    array_push($datos,$gastos);
+
+    echo json_encode($datos);
+  }
+
+  /*= Fin de Consultar datos para la grafica =*/
+  /*=============================================<<<<<*/
 }
 
 
@@ -48,5 +74,10 @@ if(isset($_POST["keyGasto"])){
   $consulta = new ControlGastosAjax();
   $consulta -> keyDato = $_POST["keyGasto"];
   $consulta -> consultarDatosGasto();
+}
+
+if (isset($_POST["pgGraficaTipo"])) {
+  $grafica = new ControlGastosAjax();
+  $grafica -> consultarDatosGraficaAjax();
 }
 ?>

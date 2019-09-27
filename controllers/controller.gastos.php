@@ -117,6 +117,23 @@ class GastosCtrl{
       echo ($eliminar == "exito") ? '<script>window.location = "index.php?action=gastos&delete=success"</script>':'<script>window.location = "index.php?action=gastos&delete=error"</script>';
     }
   }
+
+  /*=============================================>>>>>
+  = Graficas de gastos =
+  ===============================================>>>>>*/
+  static public function consultarDatosGrafica($user,$anio){
+    $meses = array("01","02","03","04","05","06","07","08","09","10","11","12");
+    $datos = array();
+    foreach ($meses as $key => $mes) {
+      $consultar = GastosMdl::sumarGastosMes($user,$mes,$anio,"gastos");
+      if (empty($consultar[0])) {
+        array_push($datos,"0");
+      }else{
+        array_push($datos,$consultar[0]);
+      }
+    }
+    return $datos;
+  }
 }
 
 ?>

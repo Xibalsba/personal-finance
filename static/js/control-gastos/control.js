@@ -231,67 +231,59 @@ $(".table").on("click", ".btnEliminarGasto", function (i, o) {
 
 
 /*=============================================>>>>>
-= Bloque de inicio =
+= Mostrar graficas de presupuestos y gastos del año =
 ===============================================>>>>>*/
 
-$(document).ready(function () {
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: ['Presupuesto', 'Gastos'],
-      datasets: [{
-        label: '# of Votes',
-        data: [2000, 700],
-        backgroundColor: [
-          'rgba(28, 200, 138, 0.5)',
-          'rgba(231, 74, 59, 0.5)',
-        ],
-        borderColor: [
-          'rgba(28, 200, 138, 1)',
-          'rgba(231, 74, 59, 1)',
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
+function graficasAnio(tipo){
+  var datos = new FormData();
+  datos.append("pgGraficaTipo",tipo);
+
+  $.ajax({
+    url:"ajax/ajax.control.php",
+    method:"POST",
+    data:datos,
+    cache:false,
+    contentType:false,
+    processData:false,
+    dataType:"json",
+    success:function(respuesta){
+      console.log(respuesta);
+      var lineChartData = {
+  			labels: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+  			datasets: [{
+  				label: 'Presupuesto',
+  				borderColor: "#2EC2F3",
+  				backgroundColor: "#32AFD8",
+  				fill: false,
+  				data: respuesta[0],
+  			}, {
+  				label: 'Gasto',
+  				borderColor: "#4C86EB",
+  				backgroundColor: "#2A71EB",
+  				fill: false,
+  				data: respuesta[1],
+  			}]
+  		};
+      new Chart(document.getElementById("myChart"), {
+        type: 'line',
+        data: lineChartData,
+        options: {
+          title: {
+            display: true,
+            text: 'Presupuesto y gastos durante el año'
+          }
+        }
+      });
     }
   });
+}
 
-  var ctt = document.getElementById('myChart2').getContext('2d');
-  var mixedChart = new Chart(ctt, {
-    type: 'bar',
-    data: {
-      datasets: [{
-        label: 'Presupuestos por mes',
-        data: [10, 95, 30, 40],
-        backgroundColor: [
-          'rgba(28, 200, 138, 0.5)',
-        ],
-        borderColor: [
-          'rgba(28, 200, 138, 1)',
-        ],
-        type: 'line'
-      }, {
-        label: 'Gastos por mes',
-        data: [15, 59, 50, 50],
-        backgroundColor: [
-          'rgba(231, 74, 59, 0.5)',
-        ],
-        borderColor: [
-          'rgba(231, 74, 59, 1)',
-        ],
-
-        // Changes this dataset to become a line
-        type: 'line'
-      }],
-      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-    },
-    options: {
-
-    }
-  });
+$(window).on('load', function() {
+  graficasAnio("GRAFICA");
+  // graficasAnio("GASTO");
+  // setInterval(graficasAnio,1000);
 });
 
-/*= End of Bloque de inicio =*/
+
+/*= End of Mostrar graficas de presupuestos y gastos del año =*/
 /*=============================================<<<<<*/
