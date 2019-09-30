@@ -247,20 +247,20 @@ function graficasAnio(tipo){
     processData:false,
     dataType:"json",
     success:function(respuesta){
-      console.log(respuesta);
+      // console.log(respuesta);
       var lineChartData = {
   			labels: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
   			datasets: [{
   				label: 'Presupuesto',
-  				borderColor: "#2EC2F3",
-  				backgroundColor: "#32AFD8",
-  				fill: false,
+  				borderColor: "rgba(44,196,99,1)",
+  				backgroundColor: "rgba(44,196,99,.5)",
+  				fill: true,
   				data: respuesta[0],
   			}, {
   				label: 'Gasto',
-  				borderColor: "#4C86EB",
-  				backgroundColor: "#2A71EB",
-  				fill: false,
+  				borderColor: "rgba(245,62,79,1)",
+  				backgroundColor: "rgba(245,62,79,.4)",
+  				fill: true,
   				data: respuesta[1],
   			}]
   		};
