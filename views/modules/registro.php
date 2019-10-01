@@ -13,15 +13,17 @@
             <div class="col-lg-6">
               <div class="p-5">
                 <div class="text-center">
-                  <h1 class="h4 text-gray-900 mb-4">¡Bienvenido de nuevo!</h1>
+                  <h1 class="h4 text-gray-900 mb-4">¡Crea una cuenta gratis!</h1>
                 </div>
-                <?php $login = new ControlGastosAppCtrl(); $login -> iniciarSesion(); ?>
-                <form class="user" method="post" id="formLogin">
+                <form class="user" method="post" id="formRegistro">
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-user" id="correoUsuario" name="correoUsuario" aria-describedby="correoUsuario" placeholder="Correo electrónico">
+                    <input type="text" class="form-control form-control-user" id="nombreUsuarioRegistro" name="nombreUsuarioRegistro" aria-describedby="nombreUsuarioRegistro" placeholder="Nombre de usuario">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="contraseniaUsuario" name="contraseniaUsuario" placeholder="Contraseña">
+                    <input type="email" class="form-control form-control-user" id="correoUsuarioRegistro" name="correoUsuarioRegistro" aria-describedby="correoUsuarioRegistro" placeholder="Correo electrónico">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control form-control-user" id="contraseniaUsuarioRegistro" name="contraseniaUsuarioRegistro" placeholder="Contraseña">
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">

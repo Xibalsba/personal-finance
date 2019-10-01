@@ -27,7 +27,15 @@
 
 <body id="page-top">
   <div class="loader"></div>
-  <?php if(!isset($_SESSION["acceso"])){include "modules/ingreso.php";} ?>
+  <?php
+   if(!isset($_SESSION["acceso"])){
+     if (isset($_GET["action"]) && $_GET["action"] == "registro") {
+       include "modules/registro.php";
+     }else{
+       include "modules/ingreso.php";
+     }
+   }
+  ?>
 
   <!-- Page Wrapper -->
   <?php if (isset($_SESSION["acceso"])): ?>
