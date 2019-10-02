@@ -25,12 +25,6 @@
                 <label>Contraseña</label>
                 <input type="password" class="form-control form-control-user" id="contraseniaUsuarioRegistro" name="contraseniaUsuarioRegistro" placeholder="Contraseña">
               </div>
-              <div class="form-group">
-                <div class="custom-control custom-checkbox small">
-                  <input type="checkbox" class="custom-control-input" id="customCheck">
-                  <label class="custom-control-label" for="customCheck">Ver contraseña</label>
-                </div>
-              </div>
               <label>Foto de perfil</label>
               <input type="file" class="dropify" id="imagenUsuarioRegistro" name="imagenUsuarioRegistro" data-max-file-size-preview="3M" data-allowed-file-extensions = "jpg png" data-height="300"  data-max-height="1000" data-min-width="100" data-max-width ="1500"/>
               <button type="submit" class="btn btn-primary btn-user btn-block mt-4">Ingresar</button>
