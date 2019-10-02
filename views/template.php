@@ -17,6 +17,7 @@
   <link href="static/vendor/datatables/datatables.bootstrap4.min.css" rel="stylesheet" type="text/css">
   <link href="static/vendor/datatables/responsive.dataTables.min.css" rel="stylesheet" type="text/css">
   <link href="static/vendor/odometer-master/themes/odometer-theme-default.css" rel="stylesheet" type="text/css">
+  <link href="static/vendor/dropify/css/dropify.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
@@ -92,6 +93,7 @@
   <script src="static/vendor/datatables/dataTables.responsive.min.js"></script>
   <script src="static/vendor/odometer-master/odometer.min.js"></script>
   <script src="static/vendor/chart.js/Chart.min.js"></script>
+  <script src="static/vendor/dropify/js/dropify.min.js"></script>
   <script src="static/js/settings.min.js"></script>
   <script src="static/js/control-gastos/control.min.js"></script>
 

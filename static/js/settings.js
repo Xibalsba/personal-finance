@@ -10,6 +10,23 @@
     };
   });
 
+  $('.dropify').dropify({
+	    messages: {
+	        'default': 'Arrastra y suelta un archivo aquí o haz clic',
+	        'replace': 'Arrastra y suelta o haz clic para reemplazar',
+	        'remove':  'Quitar',
+	        'error':   'Vaya, no se pudo cargar la imágen porque no cumple con los requisitos'
+	    },
+      error: {
+          'fileSize': 'Demasiado grande ({{ value }} max).',
+          'minWidth': 'Ancho demasiado pequeño (min {{ value }}}px).',
+          'maxWidth': 'Ancho demasiado grande (max {{ value }}}px).',
+          'minHeight': 'Alto demasiado pequeño (min {{ value }}}px).',
+          'maxHeight': 'Alto demasiado grande (max {{ value }}px max).',
+          'imageFormat': 'Formato no permitido, sólo ({{ value }}).'
+      }
+	});
+
   // Close any open menu accordions when window is resized below 768px
   $(window).resize(function() {
     if ($(window).width() < 768) {
