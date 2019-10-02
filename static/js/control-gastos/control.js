@@ -127,6 +127,31 @@ $("#formCategoriaNuevo").validate({
 ===============================================>>>>>*/
 
 
+/*=============================================>>>>>
+= Usuarios =
+===============================================>>>>>*/
+
+/*----------- Validar registro de usuario -----------*/
+$("#formRegistro").validate({
+  rules: {
+    nombreUsuarioRegistro:{
+      required:true
+    },
+    correoUsuarioRegistro:{
+      required:true
+    },
+    contraseniaUsuarioRegistro:{
+      required:true
+    },
+    imagenUsuarioRegistro:{
+      required:true
+    }
+  }
+});
+
+/*= End of Usuarios =*/
+/*=============================================<<<<<*/
+
 
 /*----------- editar presupuesto -----------*/
 $(".table").on("click", ".btnEditarPresupuesto", function () {
