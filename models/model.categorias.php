@@ -1,4 +1,7 @@
 <?php
+
+require_once "model.config.php";
+
 class CategoriasMdl extends Conexion{
     /*=============================================>>>>>
     = Agregar nueva categoria =
