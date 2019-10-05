@@ -41,8 +41,8 @@
         <!-- </div> -->';
         ?>
         <div class="profile-card-ctr">
-          <button class="profile-card__button button--blue js-message-btn">Message</button>
-          <button class="profile-card__button button--orange">Follow</button>
+          <button class="profile-card__button button--blue" data-toggle="modal" data-target="#modalPresupuestoNuevo">Presupuesto</button>
+          <button class="profile-card__button button--orange" data-toggle="modal" data-target="#modalGastoNuevo">Gasto</button>
         </div>
       </div>
 
@@ -68,3 +68,5 @@
 
     </div>
 </div>
+<?php include "modals/modal-presupuesto-nuevo.php"; ?>
+<?php include "modals/modal-gasto-nuevo.php"; ?>
