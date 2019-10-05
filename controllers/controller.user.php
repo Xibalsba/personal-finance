@@ -9,10 +9,14 @@ class UsuariosCtrl{
       if($_POST["correoUsuario"] == $consulta[0][2] && $_POST["contraseniaUsuario"] == $consulta[0][3]){
         $acceso = "true";
         $key = $consulta[0][0];
+        $nombre = $consulta[0][1];
+        $correo = $consulta[0][2];
         $foto = $consulta[0][4];
 
         $_SESSION["acceso"] = "$acceso";
         $_SESSION["userKey"] = "$key";
+        $_SESSION["userNo"] = "$nombre";
+        $_SESSION["userCo"] = "$correo";
         $_SESSION["userFt"] = "$foto";
         echo '<script>window.location = "inicio"</script>';
       }else{
