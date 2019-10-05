@@ -20,7 +20,7 @@
         $presupuesto = $presupuestos[0];
         $gasto = $gastos[0];
 
-        $porcentaje = ($gasto*100)/$presupuesto;
+        ($presupuesto > 0 && $gasto > 0 ) ? $porcentaje = ($gasto*100)/$presupuesto: $porcentaje=0;
 
         echo '<div class="profile-card-inf">
           <div class="profile-card-inf__item">
