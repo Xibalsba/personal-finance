@@ -38,21 +38,19 @@ class UsuariosCtrl{
         $contar = UsuariosMdl::contarUsuarios("usuarios");
 	      $carpeta = 'static/images/usuarios/'.ControlGastosAppCtrl::zfill($contar[0]+1,10);
 
-				$crear_carpeta = ControlGastosAppCtrl::crearCarpeta($carpeta);
+        if (!file_exists($carpeta)) {
+          $crear_carpeta = ControlGastosAppCtrl::crearCarpeta($carpeta);
+        }
+      	$imagen = $_FILES["imagenUsuarioRegistro"]["tmp_name"];
+    		$aleatorio = mt_rand(10000,99999);
+				$tipo = $_FILES["imagenUsuarioRegistro"]["type"];
 
-				if ($crear_carpeta == "exito") {
+				($tipo == "image/jpeg") ? $ruta = $carpeta."/".$aleatorio.".jpg":"";
+				($tipo == "image/png") ? $ruta = $carpeta."/".$aleatorio.".png":"";
 
-	        	$imagen = $_FILES["imagenUsuarioRegistro"]["tmp_name"];
-        		$aleatorio = mt_rand(10000,99999);
-    				$tipo = $_FILES["imagenUsuarioRegistro"]["type"];
+				$ruta_g = $ruta;
 
-    				($tipo == "image/jpeg") ? $ruta = $carpeta."/".$aleatorio.".jpg":"";
-    				($tipo == "image/png") ? $ruta = $carpeta."/".$aleatorio.".png":"";
-
-    				$ruta_g = $ruta;
-
-        		ControlGastosAppCtrl::guardarImagen($imagen,$tipo,$ruta);
-				}
+    		ControlGastosAppCtrl::guardarImagen($imagen,$tipo,$ruta);
 			}
 
       $datos = array(
