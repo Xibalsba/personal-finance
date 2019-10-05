@@ -1,20 +1,17 @@
 <div class="container mt-4">
   <div class="profile-card js-profile-card mt-4">
       <div class="profile-card__img">
-        <img src="http://www.adventuresinpoortaste.com/wp-content/uploads/2017/04/batman-vol-2-rebirth-featured.jpg" alt="profile card">
+        <img src="<?php echo $_SESSION["userFt"]; ?>">
       </div>
 
       <div class="profile-card__cnt js-profile-cnt">
-        <div class="profile-card__name">Julio López</div>
-        <div class="profile-card__txt">Desarrollador de software en <strong>Cafeología</strong></div>
+        <div class="profile-card__name"><?php echo $_SESSION["userNo"]; ?></div>
         <div class="profile-card-loc">
           <span class="profile-card-loc__icon">
-            <i class="mdi mdi-map-marker"></i>
+            <i class="mdi mdi-email"></i>
           </span>
 
-          <span class="profile-card-loc__txt">
-            Sán Cristóbal de las Casas, Chiapas. México.
-          </span>
+          <span class="profile-card-loc__txt"><?php echo $_SESSION["userCo"]; ?></span>
         </div>
 
         <div class="profile-card-inf">
