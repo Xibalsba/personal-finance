@@ -50,6 +50,12 @@ class ControlGastosAppCtrl{
 		return $numero;
 	}
 
+
+  static public function cambiarMes($mes){
+    $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+    return $meses[$mes];
+  }
+
   /*=============================================>>>>>
 	= Encriptar y desencriptar datos =
 	===============================================>>>>>*/
