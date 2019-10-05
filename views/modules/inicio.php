@@ -3,7 +3,7 @@
   <div class="col-md-12">
     <div class="alert alert-success" role="alert">
       <i class="mdi mdi-human-greeting mr-2"></i>
-      Es bueno verte por aquí, <strong>Julio</strong>
+      Es bueno verte por aquí, <strong><?php echo $_SESSION["userNo"]; ?></strong>
     </div>
   </div>
   <div class="col-xl-3 col-md-3 mb-4">
