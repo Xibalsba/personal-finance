@@ -36,7 +36,7 @@
 
         <!-- <div class="profile-card-ctr"> -->
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: '.$porcentaje.'%;" aria-valuenow="'.$porcentaje.'" aria-valuemin="0" aria-valuemax="100">'.$porcentaje.'%</div>
+            <div class="progress-bar" role="progressbar" style="width: '.bcdiv($porcentaje,1,2).'%;" aria-valuenow="'.bcdiv($porcentaje,1,2).'" aria-valuemin="0" aria-valuemax="100">'.bcdiv($porcentaje,1,2).'%</div>
           </div>
         <!-- </div> -->';
         ?>
