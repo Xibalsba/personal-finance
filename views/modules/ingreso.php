@@ -15,7 +15,7 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">¡Bienvenido de nuevo!</h1>
                 </div>
-                <?php $login = new ControlGastosAppCtrl(); $login -> iniciarSesion(); ?>
+                <?php $login = new UsuariosCtrl(); $login -> iniciarSesion(); ?>
                 <form class="user" method="post" id="formLogin">
                   <div class="form-group">
                     <input type="email" class="form-control form-control-user" id="correoUsuario" name="correoUsuario" aria-describedby="correoUsuario" placeholder="Correo electrónico">
