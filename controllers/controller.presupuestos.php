@@ -41,7 +41,10 @@ class PresupuestosCtrl{
                 <td>$'.number_format($presupuesto["monto_presupuesto"],2,'.',',').'MX<i class="mdi mdi-trending-up text-success ml-"></i></td>
                 <td>'.$presupuesto["forma_pago_presupuesto"].'</td>
                 <td>'.$fecha.'</td>
-                <td>'.$presupuesto["estado_presupuesto"].'</td>
+                <td>';
+                $consultar = CategoriasMdl::consultarCategoria($_SESSION["userKey"],$presupuesto["estado_presupuesto"],"categorias");
+                echo $consultar[0];
+                echo '</td>
                 <td>'.$presupuesto["comentario_presupuesto"].'</td>
                 <td>
                   <div class="btn-group" role="group" aria-label="Basic example">

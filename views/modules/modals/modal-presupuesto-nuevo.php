@@ -32,7 +32,7 @@
               <?php
               $categorias = CategoriasMdl::mostrarCategoriasTipo($_SESSION["userKey"],"PRESUPUESTO","categorias");
               foreach ($categorias as $key => $categoria) {
-                echo '<option value="'.$categoria["nom_categoria"].'">'.$categoria["nom_categoria"].'</option>';
+                echo '<option value="'.$categoria["id_categoria"].'">'.$categoria["nom_categoria"].'</option>';
               }
               ?>
             </select>

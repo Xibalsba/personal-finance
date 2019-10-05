@@ -52,5 +52,15 @@ class CategoriasMdl extends Conexion{
 
     /*= Fin de Contar las categorias =*/
     /*=============================================<<<<<*/
+
+
+    static public function consultarCategoria($key,$tipo,$tabla){
+        $stmt=Conexion::conectar()->prepare("SELECT nom_categoria FROM $tabla WHERE id_usuario=:key AND id_categoria=:tipo");
+        $stmt->bindParam(":key",$key,PDO::PARAM_STR);
+        $stmt->bindParam(":tipo",$tipo,PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch();
+        $stmt->close();
+    }
 }
 ?>
