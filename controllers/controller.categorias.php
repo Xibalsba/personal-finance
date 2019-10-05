@@ -52,7 +52,7 @@ class CategoriasCtrl{
   ===============================================>>>>>*/
 
   static public function contarCategorias($tipo){
-    $contar = CategoriasMdl::contarCategorias($tipo,"categorias");
+    $contar = CategoriasMdl::contarCategorias($tipo,$_SESSION["userKey"],"categorias");
     echo $contar[0];
   }
 }
