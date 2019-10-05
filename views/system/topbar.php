@@ -21,7 +21,7 @@
     <li class="nav-item dropdown no-arrow">
       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="mr-2 d-none d-lg-inline text-gray-600 small">Julio López</span>
-        <img class="img-profile rounded-circle" src="http://www.adventuresinpoortaste.com/wp-content/uploads/2017/04/batman-vol-2-rebirth-featured.jpg">
+        <img class="img-profile rounded-circle" src="<?php echo $_SESSION["userFt"]; ?>">
         <div class="status-indicator bg-success"></div>
       </a>
       <!-- Dropdown - User Information -->
