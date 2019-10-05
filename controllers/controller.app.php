@@ -38,6 +38,18 @@ class ControlGastosAppCtrl{
 		return $fechaDato;
 	}
 
+  static public function zFill($numero,$maximo){
+		$largo_numero = strlen($numero);
+		$largo_maximo = $maximo;
+		$resto = $largo_maximo-$largo_numero;
+
+		for ($i=0; $i < $resto; $i++) {
+			$numero = "0".$numero;
+		}
+
+		return $numero;
+	}
+
   /*=============================================>>>>>
 	= Encriptar y desencriptar datos =
 	===============================================>>>>>*/
@@ -67,6 +79,54 @@ class ControlGastosAppCtrl{
 
 	    return $output;
 	  }
+
+    /*=======================================================
+  	=            Guardar imágenes en el servidor            =
+  	=======================================================*/
+
+  	static public function guardarImagen($archivo,$tipo,$ruta){
+  	  list($ancho, $alto) = getimagesize($archivo);
+
+        $nuevoAncho = 800;
+        $nuevoAlto = 800;
+
+        /*=============================================
+        DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+        =============================================*/
+
+        if($tipo == "image/jpeg"){
+          /*=============================================
+          GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+          =============================================*/
+          $origen = imagecreatefromjpeg($archivo);
+          $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+          imagecopyresampled($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+          imagejpeg($destino, $ruta);
+
+        }
+
+        if($tipo == "image/png"){
+
+          /*=============================================
+          GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+          =============================================*/
+          $origen = imagecreatefrompng($archivo);
+          $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+          imagecopyresampled($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+          imagepng($destino, $ruta);
+
+        }
+  	}
+
+    /*======================================
+  	=            Crear carpetas            =
+  	======================================*/
+
+  	static public function crearCarpeta($direccion){
+  		return (mkdir($direccion, 0777, true)) ? 'exito':'error';
+  	}
+
+  	/*=====  Fin de Crear carpetas  ======*/
 }
 
 ?>
