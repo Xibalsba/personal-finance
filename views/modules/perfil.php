@@ -13,27 +13,33 @@
 
           <span class="profile-card-loc__txt"><?php echo $_SESSION["userCo"]; ?></span>
         </div>
+        <?php
+        $presupuestos = PresupuestosCtrl::sumarPresupuestosMes($_SESSION["userKey"],"presupuestos");
+        $gastos = GastosCtrl::sumarGastos($_SESSION["userKey"],"gastos");
 
-        <div class="profile-card-inf">
+        $presupuesto = $presupuestos[0];
+        $gasto = $gastos[0];
+
+        $porcentaje = ($gasto*100)/$presupuesto;
+
+        echo '<div class="profile-card-inf">
           <div class="profile-card-inf__item">
-            <div class="profile-card-inf__title"><?php $presupuesto = PresupuestosCtrl::sumarPresupuestosMes($_SESSION["userKey"],"presupuestos");
-            echo "$".number_format($presupuesto[0],2,'.',',')."MX"; ?></div>
-            <div class="profile-card-inf__txt">Presupuesto Total</div>
+            <div class="profile-card-inf__title">'."$".number_format($presupuesto,2,'.',',')."MX".'</div>
+            <div class="profile-card-inf__txt">Presupuesto Total ('.ControlGastosAppCtrl::cambiarMes(date("m")-1).')</div>
           </div>
 
           <div class="profile-card-inf__item">
-            <div class="profile-card-inf__title"><?php $gastos = GastosCtrl::sumarGastos($_SESSION["userKey"],"gastos");
-            echo "$".number_format($gastos[0],2,'.',',')."MX"; ?></div>
-            <div class="profile-card-inf__txt">Gasto Total</div>
+            <div class="profile-card-inf__title">'."$".number_format($gasto,2,'.',',')."MX".'</div>
+            <div class="profile-card-inf__txt">Gasto Total ('.ControlGastosAppCtrl::cambiarMes(date("m")-1).')</div>
           </div>
         </div>
 
         <!-- <div class="profile-card-ctr"> -->
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+            <div class="progress-bar" role="progressbar" style="width: '.$porcentaje.'%;" aria-valuenow="'.$porcentaje.'" aria-valuemin="0" aria-valuemax="100">'.$porcentaje.'%</div>
           </div>
-        <!-- </div> -->
-
+        <!-- </div> -->';
+        ?>
         <div class="profile-card-ctr">
           <button class="profile-card__button button--blue js-message-btn">Message</button>
           <button class="profile-card__button button--orange">Follow</button>
