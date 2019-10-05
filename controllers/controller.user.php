@@ -18,6 +18,49 @@ class UsuariosCtrl{
       }
     }
   }
+
+
+  /*----------- Agregar nuevo usuario -----------*/
+  static public function nuevoUsuario(){
+    if (isset($_POST["correoUsuarioRegistro"])) {
+
+      $ruta_g = '';
+
+			/*----------  Verificamos la imagen  ----------*/
+
+	    if(isset($_FILES["imagenUsuarioRegistro"]["tmp_name"])){
+        $contar = UsuariosMdl::contarUsuarios("usuarios");
+	      $carpeta = 'static/images/usuarios/'.ControlGastosAppCtrl::zfill($contar[0]+1,10);
+
+				$crear_carpeta = ControlGastosAppCtrl::crearCarpeta($carpeta);
+
+				if ($crear_carpeta == "exito") {
+
+	        	$imagen = $_FILES["imagenUsuarioRegistro"]["tmp_name"];
+        		$aleatorio = mt_rand(10000,99999);
+    				$tipo = $_FILES["imagenUsuarioRegistro"]["type"];
+
+    				($tipo == "image/jpeg") ? $ruta = $carpeta."/".$aleatorio.".jpg":"";
+    				($tipo == "image/png") ? $ruta = $carpeta."/".$aleatorio.".png":"";
+
+    				$ruta_g = $ruta;
+
+        		ControlGastosAppCtrl::guardarImagen($imagen,$tipo,$ruta);
+				}
+			}
+
+      $datos = array(
+        "nombre"=>$_POST["nombreUsuarioRegistro"],
+        "correo"=>$_POST["correoUsuarioRegistro"],
+        "contrasenia"=>$_POST["contraseniaUsuarioRegistro"],
+        "imagen"=>$ruta_g,
+      );
+
+      $registro = UsuariosMdl::nuevoUsuario($datos,"usuarios");
+
+      echo ($registro == "exito") ? '<script>window.location = "ingreso";</script>':'<script>window.location = "registro"</script>';
+    }
+  }
 }
 
 ?>
