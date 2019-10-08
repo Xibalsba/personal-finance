@@ -3,9 +3,11 @@ session_start();
 require_once "../controllers/controller.app.php";
 require_once "../controllers/controller.presupuestos.php";
 require_once "../controllers/controller.gastos.php";
+require_once "../controllers/controller.categorias.php";
 
 require_once "../models/model.presupuestos.php";
 require_once "../models/model.gastos.php";
+require_once "../models/model.categorias.php";
 
 class ControlGastosAjax{
   public $keyDato;
@@ -61,6 +63,13 @@ class ControlGastosAjax{
 
   /*= Fin de Consultar datos para la grafica =*/
   /*=============================================<<<<<*/
+
+
+  public function consultarDatosCategoria(){
+    $key = $this->keyDato;
+    $consulta = CategoriasCtrl::consultarDatosCategoria(ControlGastosAppCtrl::openCypher("decrypt",$key),"categorias");
+    echo json_encode($consulta);
+  }
 }
 
 
@@ -79,5 +88,11 @@ if(isset($_POST["keyGasto"])){
 if (isset($_POST["pgGraficaTipo"])) {
   $grafica = new ControlGastosAjax();
   $grafica -> consultarDatosGraficaAjax();
+}
+
+if (isset($_POST["categoriaEditar"])) {
+  $consulta = new ControlGastosAjax();
+  $consulta -> keyDato = $_POST["categoriaEditar"];
+  $consulta -> consultarDatosCategoria();
 }
 ?>

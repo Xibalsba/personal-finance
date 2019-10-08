@@ -38,7 +38,7 @@ class CategoriasCtrl{
             <td>'.$categoria["tipo_categoria"].'</td>
             <td>
                 <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-secondary btnEditarCategoria" kyCategoria="'.ControlGastosAppCtrl::openCypher("encrypt",$categoria["id_categoria"]).'" nmCategoria="'.ControlGastosAppCtrl::openCypher("encrypt",$categoria["nom_categoria"]).'" tpCategoria="'.ControlGastosAppCtrl::openCypher("encrypt",$categoria["tipo_categoria"]).'" dcCategoria="'.ControlGastosAppCtrl::openCypher("encrypt",$categoria["descripcion_categoria"]).'">Editar</button>
+                  <button type="button" class="btn btn-secondary btnEditarCategoria" kyCategoria="'.ControlGastosAppCtrl::openCypher("encrypt",$categoria["id_categoria"]).'">Editar</button>
                   <button type="button" class="btn btn-secondary btnEliminarCategoria" keyCategoria="'.ControlGastosAppCtrl::openCypher("encrypt",$categoria["id_categoria"]).'">Eliminar</button>
                 </div>
             </td>
@@ -54,6 +54,11 @@ class CategoriasCtrl{
   static public function contarCategorias($tipo){
     $contar = CategoriasMdl::contarCategorias($tipo,$_SESSION["userKey"],"categorias");
     echo $contar[0];
+  }
+
+  static public function consultarDatosCategoria($key,$tabla){
+    $consulta = CategoriasMdl::consultarDatosCategoria($key,$tabla);
+    return $consulta;
   }
 }
 ?>

@@ -62,5 +62,13 @@ class CategoriasMdl extends Conexion{
         return $stmt->fetch();
         $stmt->close();
     }
+
+    static public function consultarDatosCategoria($key,$tabla){
+      $stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_categoria=:key");
+      $stmt->bindParam(":key",$key,PDO::PARAM_STR);
+      $stmt->execute();
+      return $stmt->fetchAll();
+      $stmt->close();
+    }
 }
 ?>

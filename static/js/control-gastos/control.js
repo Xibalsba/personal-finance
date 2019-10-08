@@ -316,10 +316,28 @@ $(window).on('load', function() {
 
 $(".table").on("click",".btnEditarCategoria",function(){
   var key =  $(this).attr("kyCategoria");
-  var nombre =  $(this).attr("kyCategoria");
-  var tipo =  $(this).attr("kyCategoria");
-  console.log(key);
-
-  $("#keyCategoriaEditar").val(key);
+  var datos = new FormData();
+  datos.append("categoriaEditar",key);
+  $(".modal-content-hide").hide();
+  $(".loadModal").show();
   $("#modalCategoriaEditar").modal("show");
+
+  $.ajax({
+    url:"ajax/ajax.control.php",
+    method:"POST",
+    data:datos,
+    cache:false,
+    contentType:false,
+    processData:false,
+    dataType:"json",
+    success:function(respuesta){
+      $.each(respuesta,function(id,op){
+        $("#nombreCategoriaEditar").val(op.nom_categoria);
+        $('#tipoCategoriaEditar option[value="' + op.tipo_categoria + '"]').attr("selected", true);
+        $("#descripcionCategoriaEditar").val(op.descripcion_categoria);
+      });
+      $(".loadModal").delay(2000).fadeOut(1000);
+      $(".modal-content-hide").delay(3000).show(2000);
+    }
+  });
 });
