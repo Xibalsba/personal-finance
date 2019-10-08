@@ -68,3 +68,4 @@
 </div>
 
 <?php include "modals/modal-categoria-nuevo.php" ?>
+<?php include "modals/modal-categoria-editar.php" ?>

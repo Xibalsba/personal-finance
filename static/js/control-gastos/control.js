@@ -312,3 +312,14 @@ $(window).on('load', function() {
 
 /*= End of Mostrar graficas de presupuestos y gastos del año =*/
 /*=============================================<<<<<*/
+
+
+$(".table").on("click",".btnEditarCategoria",function(){
+  var key =  $(this).attr("kyCategoria");
+  var nombre =  $(this).attr("kyCategoria");
+  var tipo =  $(this).attr("kyCategoria");
+  console.log(key);
+
+  $("#keyCategoriaEditar").val(key);
+  $("#modalCategoriaEditar").modal("show");
+});
