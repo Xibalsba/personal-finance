@@ -94,6 +94,10 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 $(document).ready(function () {
   $(".loader").fadeOut("slow");
 
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  })
+
   jQuery.extend(jQuery.validator.messages, {
     required: "Este campo es obligatorio.",
     remote: "Por favor, rellena este campo.",
