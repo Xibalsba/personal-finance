@@ -37,6 +37,11 @@
               </div>
             </div>
           </div>
+          <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 66.75%;background:#31b553" aria-valuenow="66.75" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="ROPA: $49,500.00">66.75%</div>
+              <div class="progress-bar" role="progressbar" style="width: 18.20%;background:#421b25" aria-valuenow="18.20" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="COMIDA: $13,500.00">18.20%</div>
+
+          </div>
         </div>
         <table class="table table-striped display responsive nowrap" style="width:100%">
           <thead>
