@@ -22,8 +22,13 @@ Class GastosMdl extends Conexion{
                 =Sumar gastos=
   ===============================================>>>>>*/
 
-  static public function sumarGastos($key,$tabla){
-    $stmt=Conexion::conectar()->prepare("SELECT SUM(monto_gasto) FROM $tabla WHERE id_usuario_gasto=:key");
+  static public function sumarGastos($key,$tabla,$type=null){
+    if (is_null($type)) {
+      $stmt=Conexion::conectar()->prepare("SELECT SUM(monto_gasto) FROM $tabla WHERE id_usuario_gasto=:key");
+    }else{
+      $stmt=Conexion::conectar()->prepare("SELECT SUM(monto_gasto) FROM $tabla WHERE id_usuario_gasto=:key AND tipo_gasto=:tipo");
+      $stmt->bindParam(":tipo",$type,PDO::PARAM_STR);
+    }
     $stmt->bindParam(":key",$key,PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetch();

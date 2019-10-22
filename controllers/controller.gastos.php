@@ -134,6 +134,58 @@ class GastosCtrl{
     }
     return $datos;
   }
+
+
+  /*=============================================>>>>>
+  = Ver porcentaje de gastos por categoria =
+  ===============================================>>>>>*/
+
+  static public function porcentajeDeGastoPorCategoria(){
+    $categorias =  CategoriasMdl::mostrarCategoriasTipo($_SESSION["userKey"],"GASTO","categorias");
+    $porcentajes = array();
+    $total = 0;
+
+    foreach ($categorias as $key => $categoria) {
+      $color = ControlGastosAppCtrl::random_color();
+
+      $consulta = GastosMdl::sumarGastos($_SESSION["userKey"],"gastos",$categoria["id_categoria"]);
+
+      if ($consulta[0] != 0) {
+        $datos = array(
+          "nombre"=>$categoria["nom_categoria"],
+          "color"=>'#'.$color,
+          "total"=>$consulta[0]
+        );
+
+        array_push($porcentajes,$datos);
+        $total += $consulta[0];
+      }
+
+    }
+    // print_r($porcentajes);
+    // echo "<br><br>Ordenamiento:<br>";
+
+    foreach ($porcentajes as $key => $porcentaje) {
+      $totales[$key] = $porcentaje["total"];
+    }
+
+    array_multisort($totales,SORT_DESC,$porcentajes);
+    // print_r($porcentajes);
+    // echo "<br>total: ".$total;
+
+    /*----------- Sacar los porcentajes -----------*/
+    foreach ($porcentajes as $key => $porcentaje) {
+      // print_r($porcentaje);
+      // echo "<br><br>".$porcentaje["nombre"]."<br>";
+      // echo $porcentaje["color"]."<br>";
+      // echo $porcentaje["total"]."<br>";
+      $porcentaje_r = ControlGastosAppCtrl::porcentaje($total,$porcentaje["total"]);
+      echo '<div class="progress-bar" role="progressbar" style="width: '.$porcentaje_r.'%;background:'.$porcentaje["color"].'" aria-valuenow="'.$porcentaje_r.'" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="'.$porcentaje["nombre"].': $'.number_format($porcentaje["total"],2,'.',',').'">'.$porcentaje_r.'%</div>';
+    }
+  }
+
+  /*= End of Ver porcentaje de gastos por categoria =*/
+  /*=============================================<<<<<*/
 }
 
 ?>
