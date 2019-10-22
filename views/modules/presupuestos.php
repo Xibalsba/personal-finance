@@ -38,11 +38,7 @@
           </div>
           <div class="card-footer">
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 10%;background:#8A3AFC" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="COMIDA: $100">10%</div>
-
-              <div class="progress-bar" role="progressbar" style="width: 60%;background:#4DB964" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="ROPA: $600">60%</div>
-
-                <div class="progress-bar" role="progressbar" style="width: 20%;background:#EAA143" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="ROPA: $200">20%</div>
+              <?php $porcentaje = new PresupuestosCtrl(); $porcentaje -> porcentajeDePresupuestoPorCategoria(); ?>
             </div>
           </div>
         </div>

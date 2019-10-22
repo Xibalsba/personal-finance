@@ -133,6 +133,34 @@ class ControlGastosAppCtrl{
   	}
 
   	/*=====  Fin de Crear carpetas  ======*/
+
+
+    /*=============================================>>>>>
+    = Generar colores hexadecimales aleatorios =
+    ===============================================>>>>>*/
+
+    static public function random_color_part() {
+        return str_pad( dechex( mt_rand( 0, 255 ) ), 2, '0', STR_PAD_LEFT);
+    }
+
+    static public function random_color() {
+        return ControlGastosAppCtrl::random_color_part() . ControlGastosAppCtrl::random_color_part() . ControlGastosAppCtrl::random_color_part();
+    }
+
+    /*= End of Generar colores hexadecimales aleatorios =*/
+    /*=============================================<<<<<*/
+
+
+    /*=============================================>>>>>
+    = Sacar porcentajes =
+    ===============================================>>>>>*/
+
+    static public function porcentaje($total=0,$incognita=0){
+      return bcdiv(($incognita*100)/$total,1,2);
+    }
+
+    /*= End of Sacar porcentajes =*/
+    /*=============================================<<<<<*/
 }
 
 ?>

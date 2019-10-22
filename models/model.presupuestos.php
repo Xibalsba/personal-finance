@@ -70,8 +70,14 @@ Class PresupuestosMdl{
                 =Sumar presupuestos=
   ===============================================>>>>>*/
 
-  static public function sumarPresupuestos($key,$tabla){
-    $stmt=Conexion::conectar()->prepare("SELECT SUM(monto_presupuesto) FROM $tabla WHERE id_usuario_presupuesto=:key");
+  static public function sumarPresupuestos($key,$tabla,$type=null){
+
+    if (is_null($type)) {
+      $stmt=Conexion::conectar()->prepare("SELECT SUM(monto_presupuesto) FROM $tabla WHERE id_usuario_presupuesto=:key");
+    }else{
+      $stmt=Conexion::conectar()->prepare("SELECT SUM(monto_presupuesto) FROM $tabla WHERE id_usuario_presupuesto=:key AND estado_presupuesto=:estado");
+      $stmt->bindParam(":estado",$type,PDO::PARAM_STR);
+    }
     $stmt->bindParam(":key",$key,PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetch();
